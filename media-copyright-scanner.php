@@ -93,40 +93,6 @@ function mcs_render_settings_page() {
             </button>
         </div>
     </div>
-    <style>
-        #mcs-docs-btn,
-        #mcs-support-btn {
-            float: right;
-        }
-        #mcs-progress-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .mcs-progress-wrapper {
-            margin-bottom: 20px;
-        }
-        #mcs-progress-bar {
-            width: 80%;
-            height: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        #mcs-progress-text {
-            margin-left: 10px;
-            font-weight: bold;
-        }
-        .mcs-buttons {
-            margin-bottom: 20px;
-        }
-        .mcs-buttons .button {
-            margin-right: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-        #mcs-results-table th input {
-            margin-left: 0;
-        }
-    </style>
     <?php
 }
 
@@ -142,6 +108,14 @@ function mcs_enqueue_scripts( $hook ) {
     if ( 'media_page_media-copyright-scanner' !== $hook ) {
         return;
     }
+
+    wp_enqueue_style(
+        'mcs-scan-styles',
+        plugin_dir_url( __FILE__ ) . 'assets/css/styles.css',
+        [],
+        MEDIA_COPYRIGHT_SCANNER_VERSION,
+        'all'
+    );
 
     wp_enqueue_script(
         'mcs-scan-script',
@@ -167,56 +141,56 @@ add_action( 'admin_enqueue_scripts', 'mcs_enqueue_scripts' );
  */
 function mcs_get_default_patterns() {
     return [
-        'Getty Images'           => array( '/gettyimages/i', '/gi-\d+/i' ),
-        'Shutterstock'           => array( '/shutterstock_\d+/i', '/shutterstock-\d+/i' ),
-        'iStockPhoto'            => array( '/istockphoto/i', '/iStock_\d+/i' ),
-        'Adobe Stock'            => array( '/adobestock_\d+/i', '/AdobeStock_\d+/i' ),
-        'Dreamstime'             => array( '/dreamstime/i', '/dreamstime_xl_\d+/i', '/dreamstimefree_\d+/i' ),
-        'Pexels'                 => array( '/pexels/i', '/pexels-photo-\d+/i' ),
-        'Unsplash'               => array( '/unsplash/i', '/photo-\d+-[a-f0-9]+/i' ),
-        'Depositphotos'          => array( '/depositphotos/i' ),
-        '123RF'                  => array( '/123rf/i' ),
-        'Alamy'                  => array( '/alamy/i' ),
-        'Bigstock'               => array( '/bigstock/i' ),
-        'Freepik'                => array( '/freepik/i' ),
-        'VectorStock'            => array( '/vectorstock/i' ),
-        'Pixabay'                => array( '/pixabay/i' ),
-        'RawPixel'               => array( '/rawpixel/i' ),
-        'StockVault'             => array( '/stockvault/i' ),
-        'Burst'                  => array( '/burst/i' ),
-        'Kaboompics'             => array( '/kaboompics/i' ),
-        'Reshot'                 => array( '/reshot/i' ),
-        'Envato Elements'        => array( '/envato/i', '/envato-elements/i' ),
-        'Canva'                  => array( '/canva/i', '/canva-photo-editor/i' ),
-        'Picfair'                => array( '/picfair/i' ),
-        'Pond5'                  => array( '/pond5/i' ),
-        'EyeEm'                  => array( '/eyeem/i' ),
-        'Stocksy'                => array( '/stocksy/i', '/stocksy_tx\d+/i' ),
-        'Fotolia'                => array( '/fotolia/i', '/fotolia_\d+/i' ),
-        'Twenty20'               => array( '/twenty20/i' ),
-        'Pixnio'                 => array( '/pixnio/i' ),
-        'Flickr'                 => array( '/flickr/i', '/flickr_\d+/i' ),
-        'ISO Republic'           => array( '/isorepublic/i' ),
-        'Public Domain Pictures' => array( '/publicdomainpictures/i' ),
-        'Picjumbo'               => array( '/picjumbo/i' ),
-        'Life of Pix'            => array( '/lifeofpix/i' ),
-        'Gratisography'          => array( '/gratisography/i' ),
-        'Magdeleine'             => array( '/magdeleine/i' ),
-        'Negative Space'         => array( '/negativespace/i' ),
-        'Styled Stock'           => array( '/styledstock/i' ),
-        'Death to Stock'         => array( '/deathtostock/i' ),
-        'SplitShire'             => array( '/splitshire/i' ),
-        'ShotStash'              => array( '/shotstash/i' ),
-        'FancyCrave'             => array( '/fancycrave/i' ),
-        'Skitterphoto'           => array( '/skitterphoto/i' ),
-        'LibreShot'              => array( '/libreshot/i' ),
-        'PikWizard'              => array( '/pikwizard/i' ),
-        'AllTheFreeStock'        => array( '/allthefreestock/i' ),
-        'FoodiesFeed'            => array( '/foodiesfeed/i' ),
-        'Travel Coffee Book'     => array( '/travelcoffeebook/i' ),
-        'Moose Photos'           => array( '/moosephotos/i', '/moose_\d+/i' ),
-        'Freestocks'             => array( '/freestocks/i' ),
-        'Good Stock Photos'      => array( '/goodstockphotos/i' ),
+        'Getty Images'           => [ '/gettyimages/i', '/gi-\d+/i' ],
+        'Shutterstock'           => [ '/shutterstock_\d+/i', '/shutterstock-\d+/i' ],
+        'iStockPhoto'            => [ '/istockphoto/i', '/iStock_\d+/i' ],
+        'Adobe Stock'            => [ '/adobestock_\d+/i', '/AdobeStock_\d+/i' ],
+        'Dreamstime'             => [ '/dreamstime/i', '/dreamstime_xl_\d+/i', '/dreamstimefree_\d+/i' ],
+        'Pexels'                 => [ '/pexels/i', '/pexels-photo-\d+/i' ],
+        'Unsplash'               => [ '/unsplash/i', '/photo-\d+-[a-f0-9]+/i' ],
+        'Depositphotos'          => [ '/depositphotos/i' ],
+        '123RF'                  => [ '/123rf/i' ],
+        'Alamy'                  => [ '/alamy/i' ],
+        'Bigstock'               => [ '/bigstock/i' ],
+        'Freepik'                => [ '/freepik/i' ],
+        'VectorStock'            => [ '/vectorstock/i' ],
+        'Pixabay'                => [ '/pixabay/i' ],
+        'RawPixel'               => [ '/rawpixel/i' ],
+        'StockVault'             => [ '/stockvault/i' ],
+        'Burst'                  => [ '/burst/i' ],
+        'Kaboompics'             => [ '/kaboompics/i' ],
+        'Reshot'                 => [ '/reshot/i' ],
+        'Envato Elements'        => [ '/envato/i', '/envato-elements/i' ],
+        'Canva'                  => [ '/canva/i', '/canva-photo-editor/i' ],
+        'Picfair'                => [ '/picfair/i' ],
+        'Pond5'                  => [ '/pond5/i' ],
+        'EyeEm'                  => [ '/eyeem/i' ],
+        'Stocksy'                => [ '/stocksy/i', '/stocksy_tx\d+/i' ],
+        'Fotolia'                => [ '/fotolia/i', '/fotolia_\d+/i' ],
+        'Twenty20'               => [ '/twenty20/i' ],
+        'Pixnio'                 => [ '/pixnio/i' ],
+        'Flickr'                 => [ '/flickr/i', '/flickr_\d+/i' ],
+        'ISO Republic'           => [ '/isorepublic/i' ],
+        'Public Domain Pictures' => [ '/publicdomainpictures/i' ],
+        'Picjumbo'               => [ '/picjumbo/i' ],
+        'Life of Pix'            => [ '/lifeofpix/i' ],
+        'Gratisography'          => [ '/gratisography/i' ],
+        'Magdeleine'             => [ '/magdeleine/i' ],
+        'Negative Space'         => [ '/negativespace/i' ],
+        'Styled Stock'           => [ '/styledstock/i' ],
+        'Death to Stock'         => [ '/deathtostock/i' ],
+        'SplitShire'             => [ '/splitshire/i' ],
+        'ShotStash'              => [ '/shotstash/i' ],
+        'FancyCrave'             => [ '/fancycrave/i' ],
+        'Skitterphoto'           => [ '/skitterphoto/i' ],
+        'LibreShot'              => [ '/libreshot/i' ],
+        'PikWizard'              => [ '/pikwizard/i' ],
+        'AllTheFreeStock'        => [ '/allthefreestock/i' ],
+        'FoodiesFeed'            => [ '/foodiesfeed/i' ],
+        'Travel Coffee Book'     => [ '/travelcoffeebook/i' ],
+        'Moose Photos'           => [ '/moosephotos/i', '/moose_\d+/i' ],
+        'Freestocks'             => [ '/freestocks/i' ],
+        'Good Stock Photos'      => [ '/goodstockphotos/i' ],
     ];
 }
 
@@ -247,7 +221,7 @@ function mcs_scan_media() {
     }
 
     $offset     = isset( $_POST['offset'] ) ? intval( $_POST['offset'] ) : 0;
-    $batch_size = 20;
+    $batch_size = apply_filters( 'mcs_scan_media_batch_size', 20 );
 
     $args = [
         'post_type'      => 'attachment',
@@ -262,22 +236,25 @@ function mcs_scan_media() {
         ],
     ];
 
+    // Filter the args.
+    $args = apply_filters( 'mcs_scan_media_wp_query_args', $args );
+
     $query   = new WP_Query( $args );
     $results = [];
 
     // Fetch filterable patterns.
-    $patterns = apply_filters( 'mcs_patterns', [] );
+    $patterns = apply_filters( 'mcs_scan_media_patterns', [] );
 
     foreach ( $query->posts as $attachment ) {
-        $data = array(
-            'id'        => $attachment->ID,
-            'filename'  => basename( get_attached_file( $attachment->ID ) ),
-            'title'     => get_the_title( $attachment->ID ),
-            'alt'       => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
-            'description'=> $attachment->post_content,
-            'source'    => '',
-            'media_url' => wp_get_attachment_url( $attachment->ID ),
-        );
+        $data = [
+            'id'          => $attachment->ID,
+            'filename'    => basename( get_attached_file( $attachment->ID ) ),
+            'title'       => get_the_title( $attachment->ID ),
+            'alt'         => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+            'description' => $attachment->post_content,
+            'source'      => '',
+            'media_url'   => wp_get_attachment_url( $attachment->ID ),
+        ];
 
         foreach ( $patterns as $source => $regex_list ) {
             foreach ( $regex_list as $pattern ) {
@@ -288,7 +265,7 @@ function mcs_scan_media() {
                     preg_match( $pattern, $data['description'] )
                 ) {
                     $data['source'] = sanitize_text_field( $source );
-                    $results[]      = $data;
+                    $results[] = $data;
                     break 2;
                 }
             }
@@ -358,12 +335,12 @@ function mcs_get_safe_images() {
 
     foreach ( $query->posts as $attachment ) {
         $results[] = [
-            'id'         => $attachment->ID,
-            'filename'   => basename( get_attached_file( $attachment->ID ) ),
-            'title'      => get_the_title( $attachment->ID ),
-            'alt'        => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
-            'description'=> $attachment->post_content,
-            'media_url'  => wp_get_attachment_url( $attachment->ID ),
+            'id'          => $attachment->ID,
+            'filename'    => basename( get_attached_file( $attachment->ID ) ),
+            'title'       => get_the_title( $attachment->ID ),
+            'alt'         => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+            'description' => $attachment->post_content,
+            'media_url'   => wp_get_attachment_url( $attachment->ID ),
         ];
     }
 

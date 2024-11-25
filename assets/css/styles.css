@@ -1,0 +1,32 @@
+#mcs-docs-btn,
+#mcs-support-btn {
+    float: right;
+}
+#mcs-progress-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.mcs-progress-wrapper {
+    margin-bottom: 20px;
+}
+#mcs-progress-bar {
+    width: 80%;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#mcs-progress-text {
+    margin-left: 10px;
+    font-weight: bold;
+}
+.mcs-buttons {
+    margin-bottom: 20px;
+}
+.mcs-buttons .button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+#mcs-results-table th input {
+    margin-left: 0;
+}
