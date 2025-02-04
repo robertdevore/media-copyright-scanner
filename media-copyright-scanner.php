@@ -38,6 +38,21 @@ use RobertDevore\WPComCheck\WPComPluginHandler;
 new WPComPluginHandler( plugin_basename( __FILE__ ), 'https://robertdevore.com/why-this-plugin-doesnt-support-wordpress-com-hosting/' );
 
 /**
+ * Load plugin text domain for translations
+ * 
+ * @since 1.0.1
+ * @return void
+ */
+function mcs_load_textdomain() {
+    load_plugin_textdomain( 
+        'img-a11y',
+        false,
+        dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+    );
+}
+add_action( 'plugins_loaded', 'mcs_load_textdomain' );
+
+/**
  * Registers the settings page under the Media menu.
  * 
  * @since  1.0.0
