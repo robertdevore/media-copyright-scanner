@@ -1,0 +1,154 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Media Copyright Scanner\n"
+"POT-Creation-Date: 2025-02-03 20:35-0500\n"
+"PO-Revision-Date: 2025-02-03 20:35-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: media-copyright-scanner.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: includes/plugin-update-checker/vendor\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:56
+msgid "View details"
+msgstr "Voir les détails"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:79
+#, php-format
+msgid "More information about %s"
+msgstr "Plus d’informations sur %s"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:130
+msgid "Check for updates"
+msgstr "Vérifier les mises à jour"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:217
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr "Le plugin %s est à jour."
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:219
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr "Une nouvelle version de l'extension %s est disponible."
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:221
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr "Impossible de déterminer si des mises à jour sont disponibles pour %s."
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:227
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr "Mise à jour inconnue statut \"%s\""
+
+#: includes/plugin-update-checker/Puc/v5p4/Vcs/PluginUpdateChecker.php:113
+msgid "There is no changelog available."
+msgstr "Aucun registre de modifications disponible."
+
+#. Plugin Name of the plugin/theme
+#: media-copyright-scanner.php:63 media-copyright-scanner.php:82
+msgid "Media Copyright Scanner"
+msgstr "Scanner des droits d'auteur dans les médias"
+
+#: media-copyright-scanner.php:64
+msgid "Copyright Scanner"
+msgstr "Scanner des droits d'auteur"
+
+#: media-copyright-scanner.php:85
+msgid "Support"
+msgstr "Support"
+
+#: media-copyright-scanner.php:88
+msgid "Documentation"
+msgstr "Documentation"
+
+#: media-copyright-scanner.php:100
+msgid "Start Scan"
+msgstr "Démarrer l ‘analyse"
+
+#: media-copyright-scanner.php:103
+msgid "Download CSV"
+msgstr "Télécharger CSV"
+
+#: media-copyright-scanner.php:106
+msgid "Show Safe Images"
+msgstr "Montrer des images sûres"
+
+#: media-copyright-scanner.php:114
+msgid "Media ID"
+msgstr "ID du média"
+
+#: media-copyright-scanner.php:115
+msgid "Filename"
+msgstr "Nom du fichier"
+
+#: media-copyright-scanner.php:116
+msgid "Title Text"
+msgstr "Texte du titre"
+
+#: media-copyright-scanner.php:117
+msgid "Alt Text"
+msgstr "Texte alternatif"
+
+#: media-copyright-scanner.php:118
+msgid "Description"
+msgstr "Description"
+
+#: media-copyright-scanner.php:119
+msgid "Source"
+msgstr "Source"
+
+#: media-copyright-scanner.php:126
+msgid "Save Flags"
+msgstr "Sauvegarder les drapeaux"
+
+#: media-copyright-scanner.php:254 media-copyright-scanner.php:323
+#: media-copyright-scanner.php:350
+msgid "Unauthorized user"
+msgstr "Utilisateur non autorisé"
+
+#: media-copyright-scanner.php:329
+msgid "No images selected."
+msgstr "Aucunes images sélectionnées."
+
+#: media-copyright-scanner.php:336
+msgid "Images flagged as safe."
+msgstr "Images marquées comme sûres."
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/robertdevore/media-copyright-scanner/"
+msgstr "https://github.com/robertdevore/media-copyright-scanner/"
+
+#. Description of the plugin/theme
+msgid ""
+"Scans the media library for filenames, title text, alt text, and description "
+"text matching common stock image patterns."
+msgstr ""
+"Recherche dans la bibliothèque multimédia les noms de fichiers, le texte du "
+"titre, le texte alt et le texte de la description correspondant à des "
+"modèles d'images courantes."
+
+#. Author of the plugin/theme
+msgid "Robert DeVore"
+msgstr "Robert DeVore"
+
+#. Author URI of the plugin/theme
+msgid "https://robertdevore.com/"
+msgstr "https://robertdevore.com/"
