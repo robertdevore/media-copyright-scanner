@@ -277,7 +277,7 @@ function mcs_scan_media() {
     $patterns = apply_filters( 'mcs_patterns', [] );
 
     foreach ( $query->posts as $attachment ) {
-        $data = array(
+        $data = [
             'id'          => $attachment->ID,
             'filename'    => basename( get_attached_file( $attachment->ID ) ),
             'title'       => get_the_title( $attachment->ID ),
@@ -285,7 +285,7 @@ function mcs_scan_media() {
             'description' => $attachment->post_content,
             'source'      => '',
             'media_url'   => wp_get_attachment_url( $attachment->ID ),
-        );
+        ];
 
         foreach ( $patterns as $source => $regex_list ) {
             foreach ( $regex_list as $pattern ) {
@@ -320,20 +320,20 @@ function mcs_flag_safe() {
     check_ajax_referer( 'mcs_scan_nonce', 'nonce' );
 
     if ( ! current_user_can( 'manage_options' ) ) {
-        wp_send_json_error( array( 'message' => esc_html__( 'Unauthorized user', 'media-copyright-scanner' ) ) );
+        wp_send_json_error( [ 'message' => esc_html__( 'Unauthorized user', 'media-copyright-scanner' ) ] );
     }
 
-    $safe_ids = isset( $_POST['safe_ids'] ) ? array_map( 'intval', (array) $_POST['safe_ids'] ) : array();
+    $safe_ids = isset( $_POST['safe_ids'] ) ? array_map( 'intval', (array) $_POST['safe_ids'] ) : [];
 
     if ( empty( $safe_ids ) ) {
-        wp_send_json_error( array( 'message' => esc_html__( 'No images selected.', 'media-copyright-scanner' ) ) );
+        wp_send_json_error( [ 'message' => esc_html__( 'No images selected.', 'media-copyright-scanner' ) ] );
     }
 
     foreach ( $safe_ids as $id ) {
         update_post_meta( $id, '_mcs_safe_flag', 1 );
     }
 
-    wp_send_json_success( array( 'message' => esc_html__( 'Images flagged as safe.', 'media-copyright-scanner' ) ) );
+    wp_send_json_success( [ 'message' => esc_html__( 'Images flagged as safe.', 'media-copyright-scanner' ) ] );
 }
 add_action( 'wp_ajax_mcs_flag_safe', 'mcs_flag_safe' );
 
@@ -347,7 +347,7 @@ function mcs_get_safe_images() {
     check_ajax_referer( 'mcs_scan_nonce', 'nonce' );
 
     if ( ! current_user_can( 'manage_options' ) ) {
-        wp_send_json_error( array( 'message' => esc_html__( 'Unauthorized user', 'media-copyright-scanner' ) ) );
+        wp_send_json_error( [ 'message' => esc_html__( 'Unauthorized user', 'media-copyright-scanner' ) ] );
     }
 
     $query = new WP_Query( [
