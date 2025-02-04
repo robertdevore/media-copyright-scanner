@@ -4,7 +4,7 @@
  * Plugin Name: Media Copyright Scanner
  * Description: Scans the media library for filenames, title text, alt text, and description text matching common stock image patterns.
  * Plugin URI:  https://github.com/robertdevore/media-copyright-scanner/
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      Robert DeVore
  * Author URI:  https://robertdevore.com/
  * License:     GPL-2.0+
@@ -28,7 +28,7 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 $myUpdateChecker->setBranch( 'main' );
 
 // Plugin Version
-define( 'MEDIA_COPYRIGHT_SCANNER_VERSION', '1.0.0' );
+define( 'MEDIA_COPYRIGHT_SCANNER_VERSION', '1.0.1' );
 
 // Check if Composer's autoloader is already registered globally.
 if ( ! class_exists( 'RobertDevore\WPComCheck\WPComPluginHandler' ) ) {
@@ -40,7 +40,7 @@ new WPComPluginHandler( plugin_basename( __FILE__ ), 'https://robertdevore.com/w
 /**
  * Load plugin text domain for translations
  * 
- * @since 1.0.1
+ * @since  1.0.1
  * @return void
  */
 function mcs_load_textdomain() {
